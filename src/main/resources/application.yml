@@ -1,1 +1,14 @@
-spring.application.name=parking
+spring:
+  application:
+    name: parking
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://localhost:3306/parking
+    username: root
+    password: coderslab
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
