@@ -18,7 +18,7 @@ public class ParkingHouse {
     private Long id;
 
     @Column(name = "location", nullable = false)
-    private String number;
+    private String location;
 
     @OneToMany(mappedBy = "parkingHouse", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<ParkingPlace> parkingPlaces;
