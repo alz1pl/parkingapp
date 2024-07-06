@@ -1,17 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Create Parking House</title>
-</head>
-<body>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<title>Create Parking House</title>
 <h1>Create Parking House</h1>
-<form action="${pageContext.request.contextPath}/parkinghouses/create" method="post">
-    <label for="location">Location:</label>
-    <input type="text" id="location" name="location" required>
-    <button type="submit">Create</button>
-</form>
-<a href="${pageContext.request.contextPath}/parkinghouses">Back to list</a>
-</body>
-</html>
+<form:form action="${pageContext.request.contextPath}/parkinghouses/create" modelAttribute="parkingHouse" method="post">
+    <div class="input-field">
+        <form:label path="location">Location:</form:label>
+        <form:input path="location" />
+        <form:errors path="location" cssClass="error" />
+    </div>
+    <button class="waves-effect waves-light btn" type="submit">Create</button>
+</form:form>
+<a class="waves-effect waves-light btn" href="${pageContext.request.contextPath}/parkinghouses">Back to list</a>

@@ -1,6 +1,7 @@
 package com.workskop.parking.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -17,12 +18,22 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    @NotBlank
+    @Column(name = "firstName", nullable = false)
+    private String firstName;
 
-    @Column(unique = true)
+    @NotBlank
+    @Column(name = "lastName", nullable = false)
+    private String lastName;
+
+    @NotBlank
+    @Column(unique = true, nullable = false)
     private String email;
 
     private String phone;
+
+    @Column(name = "type", nullable = false)
+    private String type;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Reservation> reservations;

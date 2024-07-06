@@ -6,16 +6,16 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.3.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
-    <groupId>pl.zajacp.spring-boot-demo</groupId>
-    <artifactId>spring-boot-demo</artifactId>
+    <groupId>com.workshop.parking</groupId>
+    <artifactId>parking</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-boot-demo</name>
-    <description>spring-boot-demo</description>
+    <name>parking</name>
+    <description>parking</description>
     <packaging>war</packaging>
     <properties>
-        <java.version>22</java.version>
+        <java.version>21</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -53,7 +53,6 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- dependencies added per: https://www.baeldung.com/spring-boot-jsp-->
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>

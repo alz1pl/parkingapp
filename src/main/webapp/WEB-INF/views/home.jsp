@@ -1,13 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-</head>
-<body>
+<%@ include file="/WEB-INF/views/common/layout.jsp" %>
 
-<h1>Welcome, User!</h1>
-<p>This is the home page of your Spring Boot application.</p>
-
-</body>
-</html>
+<%
+  request.setAttribute("pageContent", "/WEB-INF/views/home/index.jsp");
+%>
