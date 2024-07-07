@@ -1,6 +1,7 @@
 package com.workskop.parking.controller;
 
 import com.workskop.parking.model.User;
+import com.workskop.parking.model.UserType;
 import com.workskop.parking.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,6 +29,7 @@ public class UserController {
     @GetMapping("/create")
     public String showCreateForm(Model model) {
         model.addAttribute("user", new User());
+        model.addAttribute("userTypes", UserType.values());
         model.addAttribute("pageContent", "/WEB-INF/views/users/create.jsp");
         return "common/layout";
     }
@@ -46,6 +48,7 @@ public class UserController {
     public String showEditForm(@PathVariable Long id, Model model) {
         User user = service.getUserById(id);
         model.addAttribute("user", user);
+        model.addAttribute("userTypes", UserType.values());
         model.addAttribute("pageContent", "/WEB-INF/views/users/edit.jsp");
         return "common/layout";
     }

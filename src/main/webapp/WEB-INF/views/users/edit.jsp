@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <h1>Edit User</h1>
 <form:form action="${pageContext.request.contextPath}/users/edit/${user.id}" modelAttribute="user" method="post">
     <div class="input-field">
@@ -25,9 +26,12 @@
     </div>
     <div class="input-field">
         <form:label path="type" class="active">Type</form:label>
-        <form:select path="type" class="browser-default">
-            <form:option value="standard">Standard</form:option>
-            <form:option value="manager">Manager</form:option>
+        <form:select path="type" class="browser-default" style="text-transform: capitalize;">
+            <c:forEach items="${userTypes}" var="type">
+                <form:option value="${type}">
+                    <c:out value="${fn:toLowerCase(type)}"/>
+                </form:option>
+            </c:forEach>
         </form:select>
         <form:errors path="type" cssClass="error"/>
     </div>
