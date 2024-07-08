@@ -8,4 +8,5 @@ import java.util.List;
 
 @Repository
 public interface ParkingPlaceRepository extends JpaRepository<ParkingPlace, Long> {
+    List<ParkingPlace> findByParkingHouseId(Long parkingHouseId);
 }

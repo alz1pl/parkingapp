@@ -14,6 +14,7 @@
         <a href="${pageContext.request.contextPath}/" class="brand-logo">Parking App</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="${pageContext.request.contextPath}/parkinghouses">Parking Houses</a></li>
+            <li><a href="${pageContext.request.contextPath}/parkingplaces">Parking Places</a></li>
             <li><a href="${pageContext.request.contextPath}/users">Users</a></li>
         </ul>
     </div>
