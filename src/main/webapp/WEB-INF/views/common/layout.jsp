@@ -5,7 +5,21 @@
     <meta charset="UTF-8">
     <title>${title}</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var selectElems = document.querySelectorAll('select');
+            M.FormSelect.init(selectElems);
+
+            flatpickr(".datetimepicker", {
+                enableTime: true,
+                dateFormat: "Y-m-d\\TH:i"
+            });
+        });
+    </script>
 </head>
 <body>
 
@@ -13,6 +27,7 @@
     <div class="nav-wrapper">
         <a href="${pageContext.request.contextPath}/" class="brand-logo">Parking App</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="${pageContext.request.contextPath}/reservations">Reservations</a></li>
             <li><a href="${pageContext.request.contextPath}/parkinghouses">Parking Houses</a></li>
             <li><a href="${pageContext.request.contextPath}/parkingplaces">Parking Places</a></li>
             <li><a href="${pageContext.request.contextPath}/users">Users</a></li>

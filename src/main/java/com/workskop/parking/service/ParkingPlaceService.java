@@ -18,8 +18,9 @@ public class ParkingPlaceService {
     private ParkingHouseRepository parkingHouseRepository;
 
     public List<ParkingPlace> getAllParkingPlaces(Long parkingHouseId) {
-        return parkingPlaceRepository.findByParkingHouseId(parkingHouseId);
-    }
+                return parkingPlaceRepository.findByParkingHouseId(parkingHouseId);
+            }
+
 
     public List<ParkingHouse> getAllParkingHouses() {
         return parkingHouseRepository.findAll();

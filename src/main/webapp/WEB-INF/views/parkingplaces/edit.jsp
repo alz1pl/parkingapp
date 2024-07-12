@@ -12,12 +12,14 @@
         <form:errors path="number" cssClass="error"/>
     </div>
     <div class="input-field">
-        <form:select path="parkingHouse.id" class="browser-default">
-            <form:option value="">Select Parking House</form:option>
+        <select id="parkingHouse.id" name="parkingHouse.id" required>
             <c:forEach items="${parkingHouses}" var="parkingHouse">
-                <form:option value="${parkingHouse.id}">${parkingHouse.location}</form:option>
+                <option value="${parkingHouse.id}" <c:if test="${parkingHouse.id == parkingPlace.parkingHouse.id}">selected</c:if>>
+                    <span>${parkingHouse.location}</span>
+                </option>
             </c:forEach>
-        </form:select>
+        </select>
+        <label for="parkingHouse.id">Parking House:</label>
         <form:errors path="parkingHouse.id" cssClass="error"/>
     </div>
     <button class="waves-effect waves-light btn" type="submit">Save</button>

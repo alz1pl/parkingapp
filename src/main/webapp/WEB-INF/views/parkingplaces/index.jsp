@@ -5,13 +5,16 @@
 <h1>Parking Places</h1>
 
 <form method="get" action="${pageContext.request.contextPath}/parkingplaces">
-    <div class="input-field">
-        <select id="parkingHouseId" name="parkingHouseId" class="browser-default">
-            <option value="">Select Parking House</option>
-            <c:forEach items="${parkingHouses}" var="house">
-                <option value="${house.id}">${house.location}</option>
-            </c:forEach>
-        </select>
+    <div class="row">
+        <div class="input-field col s12">
+            <select id="parkingHouseId" name="parkingHouseId" required>
+                <option value="" disabled selected>Select Parking House</option>
+                <c:forEach items="${parkingHouses}" var="parkingHouse">
+                    <option value="${parkingHouse.id}">${parkingHouse.location}</option>
+                </c:forEach>
+            </select>
+            <label for="parkingHouseId">Parking House:</label>
+        </div>
     </div>
     <button class="waves-effect waves-light btn" type="submit">Filter</button>
 </form>
