@@ -20,12 +20,23 @@
             });
         });
     </script>
+    <style>
+        .nav-wrapper {
+            background-color: #2196F3;
+        }
+        .btn, .btn:hover, .btn:focus {
+            background-color: #2196F3 !important;
+        }
+        .btn.red, .btn.red:hover, .btn.red:focus {
+            background-color: #f44336 !important;
+        }
+    </style>
 </head>
 <body>
 
 <nav>
     <div class="nav-wrapper">
-        <a href="${pageContext.request.contextPath}/" class="brand-logo">Parking App</a>
+        <a href="${pageContext.request.contextPath}/" class="brand-logo center">Parking App</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="${pageContext.request.contextPath}/reservations">Reservations</a></li>
             <li><a href="${pageContext.request.contextPath}/parkinghouses">Parking Houses</a></li>
