@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import jakarta.validation.constraints.NotNull;
 import java.util.Set;
 
 @Getter
@@ -17,6 +18,7 @@ public class ParkingPlace {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     @Column(name = "number", nullable = false)
     private String number;
 
