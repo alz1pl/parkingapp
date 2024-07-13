@@ -1,65 +1,67 @@
-## Projekt Systemu Rezerwacji Miejsc Parkingowych
+## Parking Space Reservation System Project
 
-Projekt ten ma na celu stworzenie aplikacji umożliwiającej rezerwację miejsc parkingowych na firmowym parkingu na określone godziny w ciągu tygodnia.
+This project aims to create an application that allows for the reservation of parking spaces in a company parking lot for specific hours during the week.
 
-### Funkcje systemu:
-- **Lista użytkowników**: Przechowuje informacje o użytkownikach, którzy mogą rezerwować miejsca parkingowe.
-- **Lista parkingów**: Przechowuje informacje o dostępnych miejscach parkingowych. Formularz dodawania i edycji, usuwanie
-- **Lista miejsc parkingowych**: Przechowuje informacje o dostępnych miejscach parkingowych. Formularz dodawania i edycji, usuwanie
-- **Lista rezerwacji dla danego miejsca parkingowego**: Przechowuje informacje o dokonanych rezerwacjach, w tym użytkownika który dokonał rezerwacji, zarezerwowane miejsce oraz czas rezerwacji.
+### System Features:
+- **User List**: Stores information about users who can reserve parking spaces.
+- **Parking House List**: Stores information about available parking locations. Includes forms for adding and editing, and allows for deletion.
+- **Parking Space List**: Stores information about available parking spaces. Includes forms for adding and editing, and allows for deletion.
+- **Reservation List for a Given Parking Space**: Stores information about made reservations, including the user who made the reservation, the reserved space, and the reservation time.
 
 #### Must Have
-- System powinien wyszukiwać wolne miejsce dla określonego dnia i zakresu czasu. 
-- W pierwszym kroku wybór użytkownika z listy. 
-- Miejsca już zarezerwowane na dany dzień nie powinny dać się zarezerwować.
-- Rezerwacje specjalne mogą być robione na dowolny czas do przodu
-- Rezerwacje standardowe mogą być robione na jeden tydzień do przodu
-- Rezerwacje mogą być usuwane z systemu zanim czas parkowania się nie rozpocznie
+- The system should search for available spaces for a specified day and time range.
+- Spaces already reserved for a given day should not be available for reservation.
+- Reservations for UNLIMITED users can be made for any time in the future.
+- Reservations for LIMITED users can be made up to one week in advance.
+- Reservations can be removed from the system before the parking time starts.
+
 #### Optional
-- W kolejnym kroku dodanie autoryzacji, użycie zalogowanego użytkownika do rezerwacji. Tylko admin może edytować miejsca parkingowe i usuwać rezerwacje innych użytkowników.
+- In the next step, add authorization, using the logged-in user for reservations. Only admin can edit parking spaces and delete other users' reservations.
 
+The system will consist of four main tables in the database: parking houses, parking users, parking spaces, and reservations.
 
-System będzie składał się z czterech głównych tabel w bazie danych: użytkowników parkingu, miejsc parkingowych i rezerwacji.
+### Tools:
+- Spring Boot
+- Lombok
+- Spring Data JPA
+- JSP
+- Materialize CSS
+- MySQL
 
-### ParkingHouses
-| Column Name | Data Type    | Constraints                 |
-|-------------|--------------|-----------------------------|
-| id          | INT          | PRIMARY KEY, AUTO_INCREMENT |
-| name        | VARCHAR(255) | NOT NULL                    |
-| location    | VARCHAR(255) |                             |
+### Database Schema Diagram
 
-### ParkingUsers
-| Column Name | Data Type     | Constraints                 |
-|-------------|---------------|-----------------------------|
-| id          | INT           | PRIMARY KEY, AUTO_INCREMENT |
-| name        | VARCHAR(255)  | NOT NULL                    |
-| email       | VARCHAR(255)  | NOT NULL, UNIQUE            |
-| phone       | VARCHAR(20)   | NOT NULL                    |
+```mermaid
+classDiagram
+direction BT
+class ParkingHouses {
+    bigint id
+    varchar(255) location
+}
 
-### ParkingPlaces
-| Column Name           | Data Type     | Constraints                                        |
-|-----------------------|---------------|----------------------------------------------------|
-| id                    | INT           | PRIMARY KEY, AUTO_INCREMENT                        |
-| number                | VARCHAR(255)  | NOT NULL                                           |
-| parking_house_id      | INT           | FOREIGN KEY REFERENCES ParkingHouses(id), NOT NULL |
+class ParkingPlaces {
+    bigint id
+    varchar(255) number
+    bigint parking_house_id
+}
 
+class Users {
+    bigint id
+    varchar(255) email
+    varchar(255) first_name
+    varchar(255) last_name
+    varchar(255) phone
+    enum type
+}
 
-### Reservations
-| Column Name      | Data Type     | Constraints                                        |
-|------------------|---------------|----------------------------------------------------|
-| id               | INT           | PRIMARY KEY, AUTO_INCREMENT                        |
-| parking_user_id  | INT           | FOREIGN KEY REFERENCES ParkingUsers(id), NOT NULL  |
-| parking_place_id | INT           | FOREIGN KEY REFERENCES ParkingPlaces(id), NOT NULL |
-| start_time       | DATETIME      | NOT NULL                                           |
-| end_time         | DATETIME      | NOT NULL                                           |
-| type             | VARCHAR(255)  | NOT NULL                                           |
+class Reservations {
+    bigint id
+    datetime(6) end_time
+    datetime(6) start_time
+    bigint parking_place_id
+    bigint user_id
+}
 
-
-### Narzędzia:
-- spring boot
-- lombok
-- spring data jpa
-- spring security (?)
-- thymeleaf
-- bootstrap
-- mysql
+ParkingPlaces --> ParkingHouses : parking_house_id
+Reservations --> ParkingPlaces : parking_place_id
+Reservations --> Users : user_id
+```
