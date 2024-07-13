@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <h1>Reservations</h1>
+
 <a class="waves-effect waves-light btn" href="${pageContext.request.contextPath}/reservations/search_places">Create New Reservation</a>
 <table>
     <thead>

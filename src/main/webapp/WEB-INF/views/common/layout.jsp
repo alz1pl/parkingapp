@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,6 +48,19 @@
 </nav>
 
 <div class="container">
+    <c:if test="${not empty error}">
+        <div class="row">
+            <div class="col s12">
+                <div class="card red lighten-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">Error</span>
+                        <p>${error}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </c:if>
+
     <jsp:include page="${pageContent}" />
 </div>
 

@@ -110,8 +110,17 @@ public class ReservationController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteReservation(@PathVariable Long id) {
-        reservationService.deleteReservation(id);
-        return "redirect:/reservations";
+    public String deleteReservation(@PathVariable Long id, Model model) {
+        Reservation reservation = reservationService.getReservationById(id);
+        if (reservation.getStartTime().isAfter(LocalDateTime.now())) {
+            reservationService.deleteReservation(id);
+            return "redirect:/reservations";
+        } else {
+            List<Reservation> reservations = reservationService.getAllReservations();
+            model.addAttribute("reservations", reservations);
+            model.addAttribute("error", "Cannot delete reservation. The parking time has already started.");
+            model.addAttribute("pageContent", "/WEB-INF/views/reservations/index.jsp");
+            return "common/layout";
+        }
     }
 }

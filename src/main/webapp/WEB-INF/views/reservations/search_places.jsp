@@ -4,19 +4,6 @@
 
 <h1>Parking Places</h1>
 
-<c:if test="${not empty error}">
-    <div class="row">
-        <div class="col s12">
-            <div class="card red lighten-1">
-                <div class="card-content white-text">
-                    <span class="card-title">Error</span>
-                    <p>${error}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</c:if>
-
 <form method="post" action="${pageContext.request.contextPath}/reservations/show_available_places">
     <div class="row">
         <div class="input-field col s12">
