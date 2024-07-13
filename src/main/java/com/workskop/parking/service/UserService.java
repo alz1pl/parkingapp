@@ -2,7 +2,7 @@ package com.workskop.parking.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.workskop.parking.model.User;
+import com.workskop.parking.entity.User;
 import com.workskop.parking.repository.UserRepository;
 
 import java.util.List;

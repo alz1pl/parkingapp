@@ -1,9 +1,9 @@
 package com.workskop.parking.controller;
 
-import com.workskop.parking.model.ParkingPlace;
-import com.workskop.parking.model.Reservation;
-import com.workskop.parking.model.User;
-import com.workskop.parking.model.UserType;
+import com.workskop.parking.entity.ParkingPlace;
+import com.workskop.parking.entity.Reservation;
+import com.workskop.parking.entity.User;
+import com.workskop.parking.entity.UserType;
 import com.workskop.parking.service.ParkingPlaceService;
 import com.workskop.parking.service.ReservationService;
 import com.workskop.parking.service.UserService;

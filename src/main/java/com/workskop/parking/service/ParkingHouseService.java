@@ -2,7 +2,7 @@ package com.workskop.parking.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.workskop.parking.model.ParkingHouse;
+import com.workskop.parking.entity.ParkingHouse;
 import com.workskop.parking.repository.ParkingHouseRepository;
 
 import java.util.List;

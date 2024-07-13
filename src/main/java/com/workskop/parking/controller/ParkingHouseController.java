@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import com.workskop.parking.model.ParkingHouse;
+import com.workskop.parking.entity.ParkingHouse;
 import com.workskop.parking.service.ParkingHouseService;
 
 import javax.validation.Valid;

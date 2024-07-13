@@ -1,4 +1,4 @@
-package com.workskop.parking.model;
+package com.workskop.parking.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;

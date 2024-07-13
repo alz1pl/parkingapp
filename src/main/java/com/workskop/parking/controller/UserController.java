@@ -1,7 +1,7 @@
 package com.workskop.parking.controller;
 
-import com.workskop.parking.model.User;
-import com.workskop.parking.model.UserType;
+import com.workskop.parking.entity.User;
+import com.workskop.parking.entity.UserType;
 import com.workskop.parking.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

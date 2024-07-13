@@ -1,7 +1,7 @@
 package com.workskop.parking.controller;
 
-import com.workskop.parking.model.ParkingHouse;
-import com.workskop.parking.model.ParkingPlace;
+import com.workskop.parking.entity.ParkingHouse;
+import com.workskop.parking.entity.ParkingPlace;
 import com.workskop.parking.service.ParkingPlaceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

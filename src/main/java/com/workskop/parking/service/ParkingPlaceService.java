@@ -1,7 +1,7 @@
 package com.workskop.parking.service;
 
-import com.workskop.parking.model.ParkingHouse;
-import com.workskop.parking.model.ParkingPlace;
+import com.workskop.parking.entity.ParkingHouse;
+import com.workskop.parking.entity.ParkingPlace;
 import com.workskop.parking.repository.ParkingHouseRepository;
 import com.workskop.parking.repository.ParkingPlaceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
